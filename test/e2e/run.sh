@@ -42,6 +42,12 @@ function find_tests() {
     done
 
 	echo "xxxxxxxx"
+	echo "${test_regex}"
+	echo "yyyyy"
+	for test in "${full_test_list[@]}"; do
+        echo "${test}"
+    done
+	echo "zzz"
 	for test in "${selected_tests[@]}"; do
         echo "${test}"
     done
