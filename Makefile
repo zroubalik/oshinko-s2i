@@ -30,7 +30,7 @@ $(alldirs):
 # Otherwise the test will assume an OpenShift instance created
 # with 'oc cluster up'
 test-ephemeral:
-	cd pyspark; LOCAL_IMAGE=$(S2I_TEST_IMAGE_PYSPARK) make build
+	cd pyspark;
 	test/e2e/run.sh "(ephemeral|incomplete)"
 
 test-java-templates:
