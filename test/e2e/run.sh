@@ -88,12 +88,12 @@ for dir in "${dirs[@]}"; do
     for test in "${tests[@]}"; do
         echo
         echo "++++ ${test}"
-        #if ! ${test}; then
-        #    echo "failed: ${test}"
-        #    failed=true
-        #    failed_dir=true
-        #    failed_list=$failed_list'\n\t'$test
-        #fi
+        if ! ${test}; then
+            echo "failed: ${test}"
+            failed=true
+            failed_dir=true
+            failed_list=$failed_list'\n\t'$test
+        fi
     done
     if [ "$failed_dir" == true -a ${S2I_SAVE_FAIL:-false} == true ]; then
         echo Leaving project $namespace because of failures
