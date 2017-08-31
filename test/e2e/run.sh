@@ -41,8 +41,9 @@ function find_tests() {
         fi
     done
 
+	os::log::info "xxxxxxxx"
 	for test in "${full_test_list[@]}"; do
-        echo $test
+        os::log::info $test
     done
 
     if [ "${#selected_tests[@]}" -eq 0 ]; then
