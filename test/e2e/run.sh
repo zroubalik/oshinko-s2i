@@ -60,6 +60,8 @@ for dir in "${dirs[@]}"; do
 
     # Get the list of test files in the current directory
     set +e
+    echo "i'm here: x${dir}x"
+    echo "jednicka x${1}x"
     output=$(find_tests $dir ${1:-.*})
     res=$?
     set -e
