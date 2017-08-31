@@ -67,6 +67,7 @@ for dir in "${dirs[@]}"; do
 
     echo "XXXXXXXXXXXXXXXX"
     echo $output
+    echo "YYYYYYYYYYYYYYYY"
 
     set -e
     if [ "$res" -ne 0 ]; then
