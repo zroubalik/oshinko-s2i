@@ -64,6 +64,10 @@ for dir in "${dirs[@]}"; do
     echo "jednicka x${1}x"
     output=$(find_tests $dir ${1:-.*})
     res=$?
+
+    echo "XXXXXXXXXXXXXXXX"
+    echo $output
+
     set -e
     if [ "$res" -ne 0 ]; then
         echo $output
