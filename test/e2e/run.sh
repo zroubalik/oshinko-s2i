@@ -43,7 +43,7 @@ function find_tests() {
 
 	os::log::info "xxxxxxxx"
 	for test in "${full_test_list[@]}"; do
-        os::log::info $test
+        os::log::info "${test}"
     done
 
     if [ "${#selected_tests[@]}" -eq 0 ]; then
