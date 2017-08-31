@@ -41,6 +41,10 @@ function find_tests() {
         fi
     done
 
+	for test in "${full_test_list[@]}"; do
+        echo $test
+    done
+
     if [ "${#selected_tests[@]}" -eq 0 ]; then
         os::log::info "No tests were selected by regex in "${1}
         return 1
