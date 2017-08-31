@@ -41,17 +41,6 @@ function find_tests() {
         fi
     done
 
-	echo "xxxxxxxx"
-	echo "${test_regex}"
-	echo "yyyyy"
-	for test in "${full_test_list[@]}"; do
-        echo "${test}"
-    done
-	echo "zzz"
-	for test in "${selected_tests[@]}"; do
-        echo "${test}"
-    done
-
     if [ "${#selected_tests[@]}" -eq 0 ]; then
         os::log::info "No tests were selected by regex in "${1}
         return 1
@@ -99,12 +88,12 @@ for dir in "${dirs[@]}"; do
     for test in "${tests[@]}"; do
         echo
         echo "++++ ${test}"
-        if ! ${test}; then
-            echo "failed: ${test}"
-            failed=true
-            failed_dir=true
-            failed_list=$failed_list'\n\t'$test
-        fi
+        #if ! ${test}; then
+        #    echo "failed: ${test}"
+        #    failed=true
+        #    failed_dir=true
+        #    failed_list=$failed_list'\n\t'$test
+        #fi
     done
     if [ "$failed_dir" == true -a ${S2I_SAVE_FAIL:-false} == true ]; then
         echo Leaving project $namespace because of failures
