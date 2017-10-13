@@ -446,6 +446,10 @@ function check_image {
         # because we're not sure what we'll have.
         v1=$(echo "$IMAGE" | sed -r -e "s@([^:]*)(:.*)@\1@")
         v2=$(echo "$testimage" | sed -r -e "s@([^:]*)(:.*)@\1@")
+
+        # remove not allowed characters from the image name
+    	v2=${v2//[\/\.]/-}
+
         echo $v1
         echo $v2
         os::cmd::expect_success '[ "$v1" == "$v2" ]'
