@@ -386,6 +386,9 @@ function fix_template() {
 	imagestream=true
     fi
 
+	# remove not allowed characters from the image name
+    pushimage=${pushimage//[\/\.]/-}
+
     if [ -n "$registry" ]; then
         set +e
         docker login --help | grep email &> /dev/null
