@@ -435,6 +435,9 @@ function check_image {
     if [ -n  "$S2I_TEST_EXTERNAL_REGISTRY" ]; then
 	imagestream=false
 	registry=true
+
+	# remove not allowed characters from the image name
+   	testimage=${testimage//[\/\.]/-}
 	testimage=$S2I_TEST_EXTERNAL_USER/scratch-$testimage
     elif [ -n "$S2I_TEST_INTEGRATED_REGISTRY" ]; then
 	imagestream=true
@@ -446,9 +449,6 @@ function check_image {
         # because we're not sure what we'll have.
         v1=$(echo "$IMAGE" | sed -r -e "s@([^:]*)(:.*)@\1@")
         v2=$(echo "$testimage" | sed -r -e "s@([^:]*)(:.*)@\1@")
-
-        # remove not allowed characters from the image name
-    	v2=${v2//[\/\.]/-}
 
         echo $v1
         echo $v2
